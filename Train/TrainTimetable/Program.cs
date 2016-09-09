@@ -57,7 +57,7 @@ namespace TrainTimetable
         /// </summary>
         /// <param name="minute"></param>
         /// <returns></returns>
-        static string minuteStr(int minute)
+        static string MinuteStr(int minute)
         {
             int tenMin = 10;
             string min;
@@ -78,7 +78,7 @@ namespace TrainTimetable
         /// <param name="hour"></param>
         /// <param name="minute"></param>
         /// <returns></returns>
-        static string convert24To12(int hour, int minute)
+        static string Convert24To12(int hour, int minute)
         {
             int hoursIn12Hour = 12;
             string time;
@@ -86,17 +86,17 @@ namespace TrainTimetable
             // Check if it is am or pm and reduce any number greater than 12 to less than twelve.
             if (hour == hoursIn12Hour)
             {
-                return time = $"{hour.ToString()}:{minuteStr(minute)}pm";
+                return time = $"{hour.ToString()}:{MinuteStr(minute)}pm";
             }
             else if (hour > hoursIn12Hour)
             {
-                return time = $"{(hour - 12).ToString()}:{minuteStr(minute)}pm";
+                return time = $"{(hour - 12).ToString()}:{MinuteStr(minute)}pm";
             }
             else
             {
-                return time = $"{hour.ToString()}:{minuteStr(minute)}am";
+                return time = $"{hour.ToString()}:{MinuteStr(minute)}am";
             }
-        }// end convert24To12.
+        }// end Convert24To12.
 
         static void FindTime()
         {
@@ -199,7 +199,7 @@ namespace TrainTimetable
             }
 
             // Convert times to 12 hour.
-            arriveTimeStr = convert24To12(arriveTimeHour, arriveTimeMinute);
+            arriveTimeStr = Convert24To12(arriveTimeHour, arriveTimeMinute);
 
             // Convert departTime to a string and put into correct format to convert to 12 hour.
             // Then convert
@@ -217,7 +217,7 @@ namespace TrainTimetable
             departTimeHour = int.Parse(hoursAndMinutes[0]);
             departTimeMin = int.Parse(hoursAndMinutes[1]);
 
-            departTimeStr = convert24To12(departTimeHour, departTimeMin);
+            departTimeStr = Convert24To12(departTimeHour, departTimeMin);
 
 
             Console.WriteLine("To arrive at {0} by {1}", (stations)arrive, arriveTimeStr);
