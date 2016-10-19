@@ -62,7 +62,7 @@ namespace TrainTimetable
             int tenMin = 10;
             string min;
 
-            if (minute >= 0 && minute <= tenMin)
+            if (minute >= 0 && minute < tenMin)
             {
                 return min = $"0{minute}";
             }
